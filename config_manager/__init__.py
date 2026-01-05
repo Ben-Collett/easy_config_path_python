@@ -36,7 +36,7 @@ class ConfigManager:
         self,
         project_name: str,
         path_override_variable_name: str | None = None,
-        _platform_wrapper=None,
+        _platform_wrapper=None,  # only for testing
     ):
         self.project_name: str = project_name
         self.path_override_variable_name = path_override_variable_name
@@ -78,7 +78,7 @@ class ConfigManager:
 
         raise RuntimeError("Unsupported platform")
 
-    def find_config_file(self, file_name: str, search_cwd=False) -> Path:
+    def find_config_file(self, file_name: str) -> Path:
         return self.find_config_dir_path() / file_name
 
     @property
